@@ -1,4 +1,20 @@
-/* Created by: Mr. Coxall
-* Created on: Sep 2020
+/* Created by: Benjamin Abebe
+* Created on: Feb 2025
 * This file contains the CSS for index.html
 */
+
+
+.mdl-layout__header-row {
+  background-color: rgb(10, 91, 9);
+  border-radius: 20px;
+}
+
+body {
+  background-color: rgb(97, 49, 127);
+}
+
+img {
+  float: right;
+  height: 200px;
+  border-radius: 20px;
+}
