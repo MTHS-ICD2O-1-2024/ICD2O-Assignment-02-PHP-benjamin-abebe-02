@@ -27,7 +27,7 @@
     </header>
     <main class="mdl-layout__content">
       <div class="right-image">
-        <img src="./parallelogram-diagram.png" alt="Parallelogram Diagram" />
+        <img src="./parallelogram_diagram.png" alt="Parallelogram Diagram" />
       </div>
       <div class="page-content">
         <h1>Fill in the spaces below!</h1>
@@ -51,37 +51,22 @@
           <td>Add the base and side length, then multiply by 2.</td>
         </tr>
       </table>
-
-      <!-- Explanation Table -->
-      <table border="2">
-        <tr>
-          <th>Base</th>
-          <th>Side Length</th>
-          <th>Height</th>
-        </tr>
-        <tr>
-          <td>The <em>Base</em> is usually the bottom side in a diagram.</td>
-          <td>The <em>Side length</em> is the slanted side (used for perimeter).</td>
-          <td>The <em>Height</em> is the perpendicular distance from the base to the opposite side.</td>
-        </tr>
-      </table>
-
       <!-- Input Form -->
       <form method="POST">
         <div class="mdl-textfield mdl-js-textfield">
-          <input class="mdl-textfield__input" type="number" id="base-input" name="base" />
+          <input class="mdl-textfield__input" type="number" id="base-input" name="base" required/>
           <label class="mdl-textfield__label" for="base-input">Base</label>
           <span class="mdl-textfield__error">Input is not a number</span>
         </div>
 
         <div class="mdl-textfield mdl-js-textfield">
-          <input class="mdl-textfield__input" type="number" id="side-input" name="side" />
+          <input class="mdl-textfield__input" type="number" id="side-input" name="side" required/>
           <label class="mdl-textfield__label" for="side-input">Side Length</label>
           <span class="mdl-textfield__error">Input is not a number</span>
         </div>
 
         <div class="mdl-textfield mdl-js-textfield">
-          <input class="mdl-textfield__input" type="number" id="height-input" name="height" />
+          <input class="mdl-textfield__input" type="number" id="height-input" name="height" required/>
           <label class="mdl-textfield__label" for="height-input">Height</label>
           <span class="mdl-textfield__error">Input is not a number</span>
         </div>
@@ -93,18 +78,16 @@
       </form>
 
       <?php
-      // Get form values if set
-      $base = $_POST['base'] ? $_POST['base'] : 0;
-      $side = $_POST['side'] ? $_POST['side'] : 0;
-      $height = $_POST['height'] ? $_POST['height'] : 0;
-
-      // If values are filled in, calculate area and perimeter
-      if ($base && $side && $height) {
+      if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $base = $_POST['base'];
+        $side = $_POST['side'];
+        $height = $_POST['height'];
         $area = $base * $height;
         $perimeter = 2 * ($base + $side);
+        /* showing the results when the user puts in values and clicks on the calculate button */
         echo "<h3>Results:</h3>";
-        echo "<p>The area of the parallelogram is: " . number_format($area, 2) . "</p>";
-        echo "<p>The perimeter of the parallelogram is: " . number_format($perimeter, 2) . "</p>";
+        echo "<p>The area of the parallelogram is: " . $area . "</p>";
+        echo "<p>The perimeter of the parallelogram is: " . $perimeter . "</p>";
       }
       ?>
     </main>

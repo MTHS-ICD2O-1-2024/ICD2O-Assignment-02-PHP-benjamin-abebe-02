@@ -5,16 +5,32 @@
 
 
 .mdl-layout__header-row {
-  background-color: rgb(10, 91, 9);
-  border-radius: 20px;
+  background-color: green;
 }
 
 body {
-  background-color: rgb(97, 49, 127);
+  background-color: rgb(101, 86, 86);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
+/* centering the table and the button */
+table {
+  margin: 20px auto;
+  border-collapse: collapse;
+  width: 80%;
+}
+
+button {
+  display: block;
+  margin: 20px auto;
+}
+
+/* making sure the image sticks to the right hand side of the web browser. */
 img {
   float: right;
-  height: 200px;
-  border-radius: 20px;
+  border-radius: 12px;
 }
